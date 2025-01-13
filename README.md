@@ -14,6 +14,7 @@ This authentication project will cover all the essential features you would expe
 ## server folder_terminal setup
 - npm init
 - npm i express cors dotenv nodemon jsonwebtoken mongoose bcryptjs nodemailer cookie-parser
+- npm run server (after setup 'nodemon' in package.json)
 
 ### Here's a breakdown of what each of these packages typically does:
 
