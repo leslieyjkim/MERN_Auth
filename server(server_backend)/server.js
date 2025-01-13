@@ -3,8 +3,13 @@ import cors from "cors";
 import 'dotenv/config';
 import cookieParser from "cookie-parser";
 
+import connectDB from './config/mongodb.js'
+
+
 const app = express(); //Created express app.
 const port = process.env.PORT || 4000
+
+connectDB();
 
 app.use(express.json()); //All the request will be passed using json
 app.use(cookieParser());
