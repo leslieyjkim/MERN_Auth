@@ -3,6 +3,7 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import userModel from '../models/userModel.js';
+import transporter from '../config/nodemailer.js';
 
 export const register = async (req, res)=>{
     const {name, email, password} = req.body;
@@ -33,7 +34,17 @@ export const register = async (req, res)=>{
             secure: process.env.NODE_ENV === 'production', //As we already put 'development' in .env file, so this line would be false.
             sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'strict',
             maxAge: 7 * 24 * 60 * 60 * 1000  // 7 days converted in miliseconds
-        })
+        });
+
+        //Sending Welcome Email
+        const mailOptions = {
+            from: process.env.SENDER_EMAIL,
+            to: email,
+            subject: 'Welcome to LesliePart',
+            text: `Welcome to LesliePart website. Your account has been created with email id: ${email}`
+        }
+
+        await transporter.sendMail(mailOptions);
 
         return res.json({success:true}); //successfull registered. 
         
