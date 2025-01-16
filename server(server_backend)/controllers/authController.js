@@ -37,6 +37,7 @@ export const register = async (req, res)=>{
         });
 
         //Sending Welcome Email
+        //.env: sender's email should be same with the login email in Brevo
         const mailOptions = {
             from: process.env.SENDER_EMAIL,
             to: email,
