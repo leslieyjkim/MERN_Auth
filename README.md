@@ -28,4 +28,4 @@ This authentication project will cover all the essential features you would expe
 - nodemailer: Node.js module for sending emails.
 - cookie-parser: Middleware to parse cookies in incoming requests.
 
-### Welcome email to new user : using 'Nodemailer'
+### Welcome email to new user : using 'Nodemailer' and 'Brevo.com'
