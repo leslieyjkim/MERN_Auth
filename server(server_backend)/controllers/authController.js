@@ -244,3 +244,43 @@ export const sendResetOTP = async (req, res)=>{
         return res.json({success:false, message: error.message})
     }
 }
+
+
+
+//Reset User Password
+export const resetPassword = async (req, res)=>{
+    const {email, otp, newPassword} = req.body;
+
+    if(!email || !otp || !newPassword){
+        return res.json({success:false, message:'Email, OTP, and new password are required'});    
+    }
+
+    try {
+
+        const user = await userModel.findOne({email});
+        if(!user){
+            return res.json({success:false, message:'User not found'});
+        }
+        //then, now if the user was found -> then we check the opt belong to that user 
+        if(user.resetOtp === "" || user.resetOtp !== otp){ //if the otp is empty or if the otp provided from user is different with otp was stored in database.
+            return res.json({success:false, message:'Invalid OTP'});
+        }
+        //Now, if the opt is matching, then we gotta check expiry date.
+        if(user.resetOtpExpireAt < Date.now()){
+            return res.json({success:false, message:'OTP Expired'});
+        }
+        //Now, here we know the OTP is valid. Update user's password. 
+        const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+        user.password = hashedPassword;
+        user.resetOtp = '';
+        user.resetOtpExpireAt = 0;
+
+        await user.save();
+
+        return res.json({success:true, message: 'Password has been reset successfully'});
+    
+    } catch(error) {
+        return res.json({success:false, message:error.message});
+    }
+}
