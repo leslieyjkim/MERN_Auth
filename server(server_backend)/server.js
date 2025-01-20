@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 
 import connectDB from './config/mongodb.js'
 import authRouter from './routes/authRoutes.js'
+import userRouter from "./routes/userRoutes.js";
 
 
 const app = express(); //Created express app.
@@ -19,6 +20,8 @@ app.use(cors({credentials: true}))  //we can send the cookies in the response fr
 // API Endpoints
 app.get('/', (req, res)=> res.send("API Working")); //after this line, restart the server part terminal, then you can see the 'API Working'.
 app.use('/api/auth', authRouter) //You can call on Postman, such as, 'http://localhost:4000/api/auth/register'
+
+app.use('/api/user', userRouter)
 
 
 
