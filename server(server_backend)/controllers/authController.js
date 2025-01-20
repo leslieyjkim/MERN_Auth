@@ -206,7 +206,7 @@ export const isAuthenticated = async (req, res)=>{
 
 
 //Send Password Reset OTP
-export const sendResetOTP = async (req, res)=>{
+export const sendResetOtp = async (req, res)=>{
  //get the email 
     const {email} = req.body;
 
@@ -223,8 +223,8 @@ export const sendResetOTP = async (req, res)=>{
         //then we will generate OTP, and  OTP will be saved in database
         const otp = String(Math.floor(100000 + Math.random() * 900000)); //generate 6 digits numbers and convert into string
         //save into database
-        user.verifyOtp = otp;
-        user.verifyOtpExpireAt = Date.now() + 24 * 60 * 60 * 1000  
+        user.resetOtp = otp;
+        user.resetOtpExpireAt = Date.now() + 15 * 60 * 1000  
         //save the user
         await user.save();
         //send the email including OTP
@@ -248,6 +248,7 @@ export const sendResetOTP = async (req, res)=>{
 
 
 //Reset User Password
+//how the OTP is being stored, retrieved, or validated.
 export const resetPassword = async (req, res)=>{
     const {email, otp, newPassword} = req.body;
 
@@ -269,7 +270,7 @@ export const resetPassword = async (req, res)=>{
         if(user.resetOtpExpireAt < Date.now()){
             return res.json({success:false, message:'OTP Expired'});
         }
-        //Now, here we know the OTP is valid. Update user's password. 
+        //Now, here we know the OTP is valid. Update user's password and store the new password. 
         const hashedPassword = await bcrypt.hash(newPassword, 10);
 
         user.password = hashedPassword;
