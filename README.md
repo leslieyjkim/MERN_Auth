@@ -29,3 +29,10 @@ This authentication project will cover all the essential features you would expe
 - cookie-parser: Middleware to parse cookies in incoming requests.
 
 ### Welcome email to new user : using 'Nodemailer' and 'Brevo.com'
+
+
+## client folder setup (react application)
+- npm create vite@latest 
+- npm install
+- npm install axios react-router-dom react-toastify
+- npm run dev
