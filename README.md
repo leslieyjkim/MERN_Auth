@@ -36,3 +36,9 @@ This authentication project will cover all the essential features you would expe
 - npm install
 - npm install axios react-router-dom react-toastify
 - npm run dev
+
+## Install Tailwind CSS with Vite
+- https://tailwindcss.com/docs/guides/vite
+- npm install -D tailwindcss postcss autoprefixer
+- npx tailwindcss init -p
+
