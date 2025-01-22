@@ -45,7 +45,7 @@ const Login = () => {
         }
       }
     } catch(error) {
-       toast.error(data.message)
+       toast.error(error.message)
     }
   }
 
@@ -107,6 +107,6 @@ const Login = () => {
       </div>
     </div>
   )
-}
+} 
 
 export default Login
