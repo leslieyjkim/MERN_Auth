@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { assets } from '../assets/assets'
 import { useNavigate } from 'react-router-dom'
+import { AppContext } from '../context/AppContext'
 
 const Login = () => {
 
   const navigate = useNavigate()
+
+  const {backendUrl, setIsLoggedin} = useContext(AppContext)
 
   const [state, setState] = useState('Sign Up') //initial value is sign up
   const [name, setName] = useState('')
