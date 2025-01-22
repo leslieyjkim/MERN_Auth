@@ -9,7 +9,7 @@ const Login = () => {
 
   const navigate = useNavigate()
 
-  const {backendUrl, setIsLoggedin} = useContext(AppContext)
+  const {backendUrl, setIsLoggedin, getUserData} = useContext(AppContext)
 
   const [state, setState] = useState('Sign Up') //initial value is sign up
   const [name, setName] = useState('')
@@ -28,6 +28,7 @@ const Login = () => {
 
         if(data.success){
           setIsLoggedin(true)
+          getUserData()
           navigate('/')
         } else {
           toast.error(data.message)
@@ -37,6 +38,7 @@ const Login = () => {
 
         if(data.success){
           setIsLoggedin(true)
+          getUserData()
           navigate('/')
         } else {
           toast.error(data.message)
@@ -57,7 +59,7 @@ const Login = () => {
         <form onSubmit={onSubmitHandler}>
 
           {state === 'Sign Up' && (
-            <div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#fbbf24]'>
+            <div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#fbbf24] text-black'>
               <img src={assets.person_icon} alt="" />
               <input
                 onChange={e => setName(e.target.value)}
@@ -67,7 +69,7 @@ const Login = () => {
             </div>)}
 
 
-          <div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#fbbf24]'>
+          <div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#fbbf24] text-black'>
             <img src={assets.mail_icon} alt="" />
             <input
               onChange={e => setEmail(e.target.value)}
@@ -76,7 +78,7 @@ const Login = () => {
               placeholder='Email id' required />
           </div>
 
-          <div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#fbbf24]'>
+          <div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#fbbf24] text-black'>
             <img src={assets.lock_icon} alt="" />
             <input
               onChange={e => setPassword(e.target.value)}
