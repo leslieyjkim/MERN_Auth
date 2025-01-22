@@ -42,3 +42,5 @@ This authentication project will cover all the essential features you would expe
 - npm install -D tailwindcss postcss autoprefixer
 - npx tailwindcss init -p
 
+## Tailwind customize colour 
+- https://tailwindcss.com/docs/customizing-colors
