@@ -44,3 +44,6 @@ This authentication project will cover all the essential features you would expe
 
 ## Tailwind customize colour 
 - https://tailwindcss.com/docs/customizing-colors
+
+## react toastify
+- https://www.npmjs.com/package/react-toastify

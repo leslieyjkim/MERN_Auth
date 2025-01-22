@@ -13,9 +13,11 @@ const port = process.env.PORT || 4000
 
 connectDB();
 
+const allowedOrigins = ['http://localhost:5173'] //allow to use this frontend server in setting with cors. 
+
 app.use(express.json()); //All the request will be passed using json
 app.use(cookieParser());
-app.use(cors({credentials: true}))  //we can send the cookies in the response from the express app
+app.use(cors({origin: allowedOrigins, credentials: true}))  //we can send the cookies in the response from the express app
 
 // API Endpoints
 app.get('/', (req, res)=> res.send("API Working")); //after this line, restart the server part terminal, then you can see the 'API Working'.
