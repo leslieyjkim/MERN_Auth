@@ -4,10 +4,17 @@ import { assets } from '../assets/assets'
 const EmailVerify = () => {
 
   const inputRefs = React.useRef([]) 
+
   const handleInput = (e, index) => {
     if(e.target.value.length > 0 && index < inputRefs.current.length -1) { //if anything was already written in input value
       inputRefs.current[index + 1].focus();//cursor will move to the next input field automatically.
     }  
+  }
+
+  const handleKeyDown = (e, index) => {    //Delete the wrong number in input fields and move to previous one
+    if(e.key === 'Backspace' && e.target.value === '' && index > 0 ){
+      inputRefs.current[index - 1].focus();
+    }
   }
 
   return (
@@ -21,6 +28,7 @@ const EmailVerify = () => {
             <input type="text" maxLength='1' key={index} required className='w-12 h-12 bg-blue-500 text-white text-center text-xl rounded-md '
             ref={e => inputRefs.current[index] = e}
             onInput = {(e) => handleInput(e, index)}
+            onKeyDown={(e) => handleKeyDown(e, index)}
             />
           ))}
         </div>
