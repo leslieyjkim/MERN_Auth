@@ -8,9 +8,12 @@ const ResetPassword = () => {
 
   const [email, setEmail] = useState('')
   const [newPassword, setNewPassword] = useState('')
+  const [isEmailSent, setIsEmailSent] = useState('')
+  const [otp, setOtp] = useState(0)
+  const [isOtpSubmited, setIsOtpSubmited] = useState(false)
 
   const inputRefs = React.useRef([])
-
+ 
   const handleInput = (e, index) => {
     if (e.target.value.length > 0 && index < inputRefs.current.length - 1) { //if anything was already written in input value
       inputRefs.current[index + 1].focus();//cursor will move to the next input field automatically.
@@ -39,6 +42,8 @@ const ResetPassword = () => {
     <div className='flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-200 to-amber-200'>
       <img onClick={() => navigate('/')} src={assets.logo} alt="" className='absolute left-5 sm:left-20 top-5 w-28 sm:w-32 cursor-pointer' />
       {/* enter email id */}
+
+      {!isEmailSent && 
       <form className='bg-amber-300 p-8 rounded-lg shadow-lg w-107 text-sm'>
         <h1 className='text-blue-500 text-2xl font-semibold text-center mb-4'>Reset Password</h1>
         <p className='text-center mb-6 text-blue-500'>Enter your registered email address.</p>
@@ -50,8 +55,11 @@ const ResetPassword = () => {
         </div>
         <button className='w-full py-2.5 bg-gradient-to-r from-indigo-500 to-indigo-900 text-white rounded-full mt-3'>Submit</button>
       </form>
+      }
 
       {/* otp input form */}
+
+      {!isOtpSubmited && isEmailSent && 
       <form className='bg-amber-300 p-8 rounded-lg shadow-lg w-107 text-sm'>
         <h1 className='text-blue-500 text-2xl font-semibold text-center mb-4'>Reset Password OTP</h1>
         <p className='text-center mb-6 text-blue-500'>Enter the 6-digit code sent to your email id</p>
@@ -66,8 +74,11 @@ const ResetPassword = () => {
         </div>
         <button className='w-full py-2.5 bg-gradient-to-r from-indigo-500 to-indigo-900 text-white rounded-full'>Submit</button>
       </form>
+      }
 
       {/* enter new password */}
+
+      {isOtpSubmited && isEmailSent &&
       <form className='bg-amber-300 p-8 rounded-lg shadow-lg w-107 text-sm'>
         <h1 className='text-blue-500 text-2xl font-semibold text-center mb-4'>New Password</h1>
         <p className='text-center mb-6 text-blue-500'>Enter the new password below.</p>
@@ -79,6 +90,7 @@ const ResetPassword = () => {
         </div>
         <button className='w-full py-2.5 bg-gradient-to-r from-indigo-500 to-indigo-900 text-white rounded-full mt-3'>Submit</button>
       </form>
+      }
     </div>
   )
 }
