@@ -47,3 +47,7 @@ This authentication project will cover all the essential features you would expe
 
 ## react toastify
 - https://www.npmjs.com/package/react-toastify
+
+## email template
+- https://stripo.email/templates/?utm_campaign=21894853599&utm_content=170383678236&utm_source=google&utm_medium=cpc&utm_term=html%20email%20template&fpr=stripo-ppc&fp_sid=21894853599&gad_source=1&gclid=Cj0KCQiA7se8BhCAARIsAKnF3rx4kfOztTFDoUCoAU8QW8lGAg4yHps3WRMfSXnD6RilTQhmQLhj3t8aAm3bEALw_wcB
+
