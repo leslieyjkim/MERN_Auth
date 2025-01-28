@@ -23,6 +23,27 @@ This authentication project will cover all the essential features you would expe
 
 Feel free to clone this repository and explore the code to see how these features are implemented! 🚀
 
+## Future Plans
+To improve the system further, the following features are planned for future development:
+
+* Password Strength Requirements :
+Enforce password conditions such as minimum length, inclusion of uppercase letters, numbers, and special characters to enhance security.
+
+* Two-Factor Authentication (2FA) :
+Add an optional two-factor authentication feature to improve account protection.
+
+* Account Lockout After Failed Attempts :
+Implement an account lockout mechanism after a defined number of unsuccessful login attempts to prevent brute force attacks.
+
+* OAuth Integration :
+Enable third-party login options (e.g., Google, Facebook) for greater user convenience.
+
+* Advanced Audit Logs : 
+Include detailed logs of account activities, such as login/logout history, password changes, and email updates.
+
+
+- Contributions and feedback are always welcome! 🚀
+
 ## server folder_terminal setup
 - npm init
 - npm i express cors dotenv nodemon jsonwebtoken mongoose bcryptjs nodemailer cookie-parser
