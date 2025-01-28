@@ -1,15 +1,27 @@
+# Authentication System using MERN 
+Welcome to the Authentication System, a robust and modern authentication solution designed to meet the essential security and usability requirements of today's web applications. This project incorporates all the key features necessary to deliver a seamless and secure user experience.
+
+
+## LIVE DEMO
+[Main page - Click me](https://youtu.be/36OuuomVFKo)
+
 ## This is how to make a user authentication system using MERN stack. 
 - MongoDB(database)
 - Express.js(backend framework)
 - React.js(frontend library using SPA(single page applications))
 - Node.js(backend JS runtime environment)
 
+## Feature
 This authentication project will cover all the essential features you would expect in modern web applications including ;
-- user registration (sending welcome email to user's email) 
-- user login & l ogout functionality
-- email verification
-- password reset feature using a secure six digit OTP sent directly to the user's email. 
+- user registration : Users can sign up easily, and a warm welcome email is sent directly to their registered email address upon successful registration.
+- user login & logout : Secure and reliable login/logout functionality, ensuring user sessions are managed effectively.
+- email verification : Users are required to verify their email address to activate their account, adding an extra layer of security.
+- password reset : A secure and user-friendly password reset feature using a six-digit One-Time Password (OTP), sent directly to the user's email.
 
+
+* This authentication project is built with best practices in mind to provide an excellent foundation for web applications. Whether you're building a personal project or a professional-grade application, this system is designed to simplify the authentication process while maintaining security and scalability.
+
+Feel free to clone this repository and explore the code to see how these features are implemented! 🚀
 
 ## server folder_terminal setup
 - npm init
